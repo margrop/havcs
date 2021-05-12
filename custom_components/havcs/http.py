@@ -334,7 +334,7 @@ class HavcsDeviceView(HomeAssistantView):
         
         local = hass.config.path("custom_components/" + INTEGRATION + "/html")
         if os.path.isdir(local):
-            hass.http.register_static_path('/havcs', local, False)
+            hass.http.register_static_path('/havcshtml', local, False)
         panels = hass.data.setdefault(DATA_PANELS, {})
         if INTEGRATION not in panels:
             hass.components.frontend.async_register_built_in_panel(
@@ -342,7 +342,7 @@ class HavcsDeviceView(HomeAssistantView):
                 sidebar_title = 'HAVCS设备',
                 sidebar_icon = 'mdi:home-edit',
                 frontend_url_path = INTEGRATION+'_panel',
-                config = {"url": '/havcs/index.html'},
+                config = {"url": '/havcshtml/index.html'},
                 require_admin = True
             )
 
